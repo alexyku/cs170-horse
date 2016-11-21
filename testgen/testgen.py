@@ -71,5 +71,5 @@ def write_adj(adj, path):
 #     print('actual:', round(p,4), '\tapprox:', round(p_approx, 4))
 
 # write to outfile
-write_adj(rbipart(N, pivot=N//2), 'rbipart.in')
-write_adj(pcomplete(N, pct=0.5), 'pcomplete.in')
+write_adj(rbipart(N, pivot=N//2), '1.in')
+write_adj(pcomplete(N, pct=0.5), '2.in')
