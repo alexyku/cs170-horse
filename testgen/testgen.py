@@ -1,4 +1,5 @@
 import numpy as np
+from random import random
 import io
 
 # max weight of vertices
@@ -49,6 +50,40 @@ def pcomplete(n, pct=None):
                 adj[i][j] = 1
     return adj
 
+def caliban(n, param=50):
+    """returns the insanity that dwells in Weston's mind"""
+
+    # make adjacency matrix
+    adj = np.zeros((n,n), dtype=np.uint8)
+
+    # initialize vertice values
+    for i in range(n):
+        adj[i][i] = np.random.randint(10) # int(10 * random())
+
+    # connect graph
+    for i in range(n):
+        try:
+            adj[i][i + 5] = 1
+        except:
+            1
+        if i % 10 < 4:
+            try:
+                adj[i][i + 6] = 1
+            except:
+                1
+        if i % 10 > 5:
+            try:
+                adj[i][i + 4] = 1
+            except:
+                1
+
+    # initialize vertice values
+    for _ in range(param):
+        i = np.random.randint(n) # int(n * random()) 
+        adj[i][i] = P - 1
+
+    return adj
+
 def adj_to_str(adj):
     return '\n'.join(' '.join(i.astype('str')) for i in adj)
 
@@ -73,3 +108,4 @@ def write_adj(adj, path):
 # write to outfile
 write_adj(rbipart(N, pivot=N//2), '1.in')
 write_adj(pcomplete(N, pct=0.5), '2.in')
+write_adj(caliban(N, param=80), '3.in')
