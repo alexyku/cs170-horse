@@ -3,7 +3,7 @@ import numpy as np
 import random
 import time
 
-TIME_OUT_SECONDS = 30
+TIME_OUT_SECONDS = 5
 
 
 value = lambda path, weights: len(path) * sum([weights[i] for i in path])
@@ -99,20 +99,15 @@ def solve(file):
 
 
 	print("RAN FOR:", time.time() - start, "SECONDS, SAW", num_seen, "SOLUTIONS")
-	# print(current_sol)
-	# print (maxPath(current_sol[1]), totalValue(current_sol[1], weights))
-	return current_sol[0]
+	return current_sol
 		
-print(solve("1.in"))
-print(solve("2.in"))
-print(solve("3.in"))
-print(solve("../sample1.in"))
-print(solve("../sample2.in"))
-print(solve("../sample3.in"))
-print(solve("02_01_00.in"))
-print(solve("0046.in"))
-print(solve("0037.in"))
-data = [solve("3.in")[1] for _ in range(10)]
-print(data, max(data))
-
+print(solve("../test_cases/1.in"))
+print(solve("../test_cases/2.in"))
+print(solve("../test_cases/3.in"))
+print(solve("../test_cases/sample1.in"))
+print(solve("../test_cases/sample2.in"))
+print(solve("../test_cases/sample3.in"))
+print(solve("../test_cases/02_01_00.in"))
+print(solve("../test_cases/0046.in"))
+print(solve("../test_cases/0037.in"))
 
