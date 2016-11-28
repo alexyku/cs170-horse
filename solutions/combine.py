@@ -1,4 +1,5 @@
 import sys
+import os.path
 
 def combine(f1, fsc1, f2, fsc2, fout, fscout):
 	s1 = open(f1, "r")
@@ -22,5 +23,9 @@ def combine(f1, fsc1, f2, fsc2, fout, fscout):
 path1 = sys.argv[1]
 path2 = sys.argv[2]
 outpath = sys.argv[3]
+
+if os.path.isfile(outpath + ".out"):
+	print(outpath + ".out already exists")
+	sys.exit()
 
 combine(path1 + '.out', path1 + 'Scores.txt', path2 + '.out', path2 + 'Scores.txt', outpath + '.out', outpath + 'Scores.txt')

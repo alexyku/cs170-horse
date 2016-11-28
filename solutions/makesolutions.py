@@ -3,7 +3,7 @@ import numpy as np
 import random
 import time
 import glob
-# import dag_sol
+import os.path
 import sys
 
 num_perfect = 0
@@ -193,6 +193,11 @@ input_path = sys.argv[1]
 output_path = sys.argv[2]
 if len(sys.argv) > 3:
 	timeout = int(sys.argv[3])
+
+if os.path.isfile(output_path + ".out"):
+	print(output_path + ".out already exists")
+	sys.exit()
+
 
 make_solutions(input_path, output_path + ".out", output_path + "Scores.txt", timeout)
 # make_solutions("../cs170_final_inputs", 'scores.txt')

@@ -7,20 +7,22 @@ Outputs are saved as two files:
 
 This directory contains a number of useful python programs:
 
-makesolutions.py, which produces a solution set. It requires python3, Anaconda, and the NetworkX graphing package. It should be called with two or three arguments:
-	'python makesolutions.py <input path> <output path> <Timeout>'
-For example:
-	'python makesolutions.py ../cs170_final_inputs/ Solutions/T20 20'
-The timeout can be used to control how long the algorithm spends on each input, so the runtime can be bounded above by Timeout * 600 seconds (but in practice is closer to a third of that). 
+	makesolutions.py, which produces a solution set. It requires python3, Anaconda, and the NetworkX graph package. It should be called with two or three arguments:
+		'python makesolutions.py <input path> <output path> <Timeout>'
+	For example:
+		'python makesolutions.py ../cs170_final_inputs/ Solutions/T20 20'
+	The timeout can be used to control how long the algorithm spends on each input, so the runtime can be bounded above by Timeout * 600 seconds (but in practice is closer to a third of that). 
 
-compare.py, which takes two arguments:
-	'python compare.py <path1> <path2>'
-For example:
-	'python compare.py solutions/T20 solutions/T5'
-And compares two outputs.
+	compare.py, which takes two arguments:
+		'python compare.py <path1> <path2>'
+	For example:
+		'python compare.py solutions/T20 solutions/T5'
+	And compares two outputs.
 
-combine.py, which takes three arguments:
-	'python combine.py <Old path 1> <Old path 2> <New path>'
-For example:
-	'python combine.py solutions/Better solutions/T20 solutions/Best'
-and combines the best entries in each of the two old paths, putting the better of each in the new path.
+	combine.py, which takes three arguments:
+		'python combine.py <Old path 1> <Old path 2> <New path>'
+	For example:
+		'python combine.py solutions/Better solutions/T20 solutions/Best'
+	and combines the best entries in each of the two old paths, putting the better of each in the new path.
+
+The solution maker is a single thread program, so it will use at most one core of your CPU. Macbook pro's have 8 (simulated) cores. So if you run multiple instances of the program at the same time, you actually increase the number of solutions you produce.
